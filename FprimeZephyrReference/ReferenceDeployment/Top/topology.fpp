@@ -340,17 +340,13 @@ module ReferenceDeployment {
       detumbleManager.angularVelocityMagnitudeGet -> imuManager.angularVelocityMagnitudeGet
       detumbleManager.magneticFieldSamplingPeriodGet -> imuManager.magneticFieldSamplingPeriodGet
 
-      detumbleManager.xPlusStart -> drv2605Face0Manager.start
-      detumbleManager.xMinusStart -> drv2605Face1Manager.start
-      detumbleManager.yPlusStart -> drv2605Face2Manager.start
-      detumbleManager.yMinusStart -> drv2605Face3Manager.start
-      detumbleManager.zMinusStart -> drv2605Face5Manager.start
+      detumbleManager.xPlusStart -> drv2605Face3Manager.start
+      detumbleManager.yPlusStart -> drv2605Face0Manager.start
+      detumbleManager.yMinusStart -> drv2605Face1Manager.start
 
-      detumbleManager.xPlusStop -> drv2605Face0Manager.stop
-      detumbleManager.xMinusStop -> drv2605Face1Manager.stop
-      detumbleManager.yPlusStop -> drv2605Face2Manager.stop
-      detumbleManager.yMinusStop -> drv2605Face3Manager.stop
-      detumbleManager.zMinusStop -> drv2605Face5Manager.stop
+      detumbleManager.xPlusStop -> drv2605Face3Manager.stop
+      detumbleManager.yPlusStop -> drv2605Face0Manager.stop
+      detumbleManager.yMinusStop -> drv2605Face1Manager.stop
 
       detumbleManager.getSystemMode -> modeManager.getMode
       modeManager.modeChanged -> detumbleManager.systemModeChanged
@@ -421,9 +417,6 @@ module ReferenceDeployment {
     connections thermalManager {
       thermalManager.faceTempGet[0] -> tmp112Face0Manager.temperatureGet
       thermalManager.faceTempGet[1] -> tmp112Face1Manager.temperatureGet
-      thermalManager.faceTempGet[2] -> tmp112Face2Manager.temperatureGet
-      thermalManager.faceTempGet[3] -> tmp112Face3Manager.temperatureGet
-      thermalManager.faceTempGet[4] -> tmp112Face5Manager.temperatureGet
       thermalManager.battCellTempGet[0] -> tmp112BattCell1Manager.temperatureGet
       thermalManager.battCellTempGet[1] -> tmp112BattCell2Manager.temperatureGet
       thermalManager.battCellTempGet[2] -> tmp112BattCell3Manager.temperatureGet
@@ -433,10 +426,6 @@ module ReferenceDeployment {
     connections adcs {
       adcs.visibleLightGet[0] -> veml6031Face0Manager.visibleLightGet
       adcs.visibleLightGet[1] -> veml6031Face1Manager.visibleLightGet
-      adcs.visibleLightGet[2] -> veml6031Face2Manager.visibleLightGet
-      adcs.visibleLightGet[3] -> veml6031Face3Manager.visibleLightGet
-      adcs.visibleLightGet[4] -> veml6031Face5Manager.visibleLightGet
-      adcs.visibleLightGet[5] -> veml6031Face6Manager.visibleLightGet
     }
 
     connections ModeManager {
@@ -457,23 +446,13 @@ module ReferenceDeployment {
       # face4 = index 0, face0 = index 1, face1 = index 2, face2 = index 3
       # face3 = index 4, face5 = index 5, payloadPower = index 6, payloadBattery = index 7
       # TODO(ALLTEAMS): Configure the faces you want to automatically turn on
-      # modeManager.loadSwitchTurnOn[0] -> face4LoadSwitch.turnOn
-      # modeManager.loadSwitchTurnOn[1] -> face0LoadSwitch.turnOn
-      # modeManager.loadSwitchTurnOn[2] -> face1LoadSwitch.turnOn
-      # modeManager.loadSwitchTurnOn[3] -> face2LoadSwitch.turnOn
-      # modeManager.loadSwitchTurnOn[4] -> face3LoadSwitch.turnOn
-      # modeManager.loadSwitchTurnOn[5] -> face5LoadSwitch.turnOn
-      # modeManager.loadSwitchTurnOn[6] -> payloadPowerLoadSwitch.turnOn
-      # modeManager.loadSwitchTurnOn[7] -> payloadBatteryLoadSwitch.turnOn
+      modeManager.loadSwitchTurnOn[0] -> face0LoadSwitch.turnOn
+      modeManager.loadSwitchTurnOn[1] -> face1LoadSwitch.turnOn
+      modeManager.loadSwitchTurnOn[2] -> face3LoadSwitch.turnOn
 
-      modeManager.loadSwitchTurnOff[0] -> face4LoadSwitch.turnOff
-      modeManager.loadSwitchTurnOff[1] -> face0LoadSwitch.turnOff
-      modeManager.loadSwitchTurnOff[2] -> face1LoadSwitch.turnOff
-      modeManager.loadSwitchTurnOff[3] -> face2LoadSwitch.turnOff
-      modeManager.loadSwitchTurnOff[4] -> face3LoadSwitch.turnOff
-      modeManager.loadSwitchTurnOff[5] -> face5LoadSwitch.turnOff
-      modeManager.loadSwitchTurnOff[6] -> payloadPowerLoadSwitch.turnOff
-      modeManager.loadSwitchTurnOff[7] -> payloadBatteryLoadSwitch.turnOff
+      modeManager.loadSwitchTurnOff[0] -> face0LoadSwitch.turnOff
+      modeManager.loadSwitchTurnOff[1] -> face1LoadSwitch.turnOff
+      modeManager.loadSwitchTurnOff[2] -> face3LoadSwitch.turnOff
 
     }
 

@@ -69,7 +69,7 @@ module Components {
         ### Magnetorquer Properties Parameters ###
 
         @ Number of turns for all coils on the X Axis
-        param X_TURNS: F64 default 96.0 id 11
+        param X_TURNS: F64 default 48.0 id 11
 
         @ Number of turns for all coils on the Y Axis
         param Y_TURNS: F64 default 96.0 id 21
@@ -79,7 +79,7 @@ module Components {
 
         # --- X+ Coil ---
         param X_PLUS_VOLTAGE: F64 default 3.3 id 9
-        param X_PLUS_RESISTANCE: F64 default 13 id 10
+        param X_PLUS_RESISTANCE: F64 default 57.2 id 10
         param X_PLUS_LENGTH: F64 default 0.053 id 12
         param X_PLUS_WIDTH: F64 default 0.045 id 13
         param X_PLUS_SHAPE: CoilShape default CoilShape.RECTANGULAR id 33
